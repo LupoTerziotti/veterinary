@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/lucianoterziotti/Documents/Repos/veterinary/veterinary.csproj": {}
+  },
+  "projects": {
+    "/Users/lucianoterziotti/Documents/Repos/veterinary/veterinary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lucianoterziotti/Documents/Repos/veterinary/veterinary.csproj",
+        "projectName": "veterinary",
+        "projectPath": "/Users/lucianoterziotti/Documents/Repos/veterinary/veterinary.csproj",
+        "packagesPath": "/Users/lucianoterziotti/.nuget/packages/",
+        "outputPath": "/Users/lucianoterziotti/Documents/Repos/veterinary/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/lucianoterziotti/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
