@@ -1,0 +1,27 @@
+.title {
+  font-size: 65px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+}
+.row {
+       margin-right: -15px; 
+    margin-left: -15px; 
+}
+
+.btn-blue-colour{
+ background-color:#2C3E50
+}
+
