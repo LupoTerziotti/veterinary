@@ -4,12 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/front-end/src/favicon.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="./veterinarians.js"></script>
     <script>src = "/front-end/css/styles.css"</script>
+    <script src="./specialties.js"></script>
+
 
 </head>
 
@@ -17,58 +19,50 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Veterinary App</a>
+                <a class="navbar-brand" href="#w">Veterinapp</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/front-end/src/home-component/home.html">Home</a></li>
-                <li class="active"><a href="/front-end/src/veterinarians-component/veterinarians.html">Veterinarios</a>
+                <li><a href="/front-end/src/app/components/home-component/home.html">Inicio</a></li>
+                <li ><a
+                        href="/front-end/src/app/components/veterinarians-component/veterinarians.html">Veterinarios</a>
                 </li>
-                <li><a href="#">Mascotas</a></li>
-                <li><a href="#">Visitas</a></li>
-                <li><a href="#">Dueños</a></li>
-                <li><a href="#">About</a></li>
+                <li class="active"><a href="/front-end/src/app/components/specialties-component/specialties.html">Especialidades</a></li>
+                <li><a href="/front-end/src/app/components/about-component/about.html">Acerca de</a></li>
+
             </ul>
         </div>
     </nav>
     <div class="container">
         <header>
             <div class="jumbotron">
-                <h1>Veterinarios</h1>
+                <h1>Especialidades</h1>
             </div>
         </header>
 
         <div ng-app="myApp" ng-controller="myCtrl">
-            <button class="btn btn-primary " ng-click="showTable()" >Mostrar
-                Veterinarios</button>
+            <button class="btn btn-primary " ng-click="showTable()">Mostrar
+                Especialidades</button>
             <button class="btn btn-primary " ng-click="showSearcher()">Buscar
-                Veterinario</button>
+                    Especialidades</button>
             <button class="btn btn-primary " ng-click="showVeterinarianRegister()">Cargar
-                Veterinario</button>
+                    Especialidades</button>
             <br>
             <br>
             <section ng-show="Tableflag">
-                <h2>Listado de Veterinarios</h2>
+                <h2>Listado de Especialidades</h2>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr style="background-color:#2C3E50; color: white;">
                             <td>ID</td>
-                            <td>DNI</td>
                             <td>Nombre</td>
-                            <td>Apellido</td>
-                            <td>Fecha de Nacimiento</td>
-                            <td>Calle</td>
-                            <td>Numero</td>
+                            <td>Descripcion</td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in veterinarians">
+                        <tr ng-repeat="item in specialties">
                             <td>{{item.id}}</td>
-                            <td>{{item.dni}}</td>
                             <td>{{item.name}}</td>
-                            <td>{{item.lastName}}</td>
-                            <td>{{item.bornDate}}</td>
-                            <td>{{item.street}}</td>
-                            <td>{{item.streetNumber}}</td>
+                            <td>{{item.description}}</td>
                         </tr>
                     </tbody>
 
@@ -92,15 +86,9 @@
             <section ng-show="Registerflag">
                 <div class="form-group row">
                     <div class="col-sm-2">
-                        <label class="col-form-label">Legajo</label>
+                        <label class="col-form-label">Id</label>
                         <div>
-                            <input class="form-control" type="text" placeholder="68499">
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <label class="col-form-label">DNI</label>
-                        <div>
-                            <input class="form-control" type="text" placeholder="38614960">
+                            <input class="form-control" type="text" placeholder="1">
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -110,37 +98,11 @@
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <label class="col-form-label">Apellido</label>
+                        <label class="col-form-label">Descripcion</label>
                         <div>
-                            <input class="form-control" type="text" placeholder="Perez">
+                            <input class="form-control" type="text" placeholder="...">
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <label class="col-form-label">Fecha De Nacimiento</label>
-                        <div>
-                            <input class="form-control" type="text" placeholder="28/12/1994">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label class="col-form-label">Calle</label>
-                        <div>
-                            <input class="form-control" type="text" placeholder="Wallaby">
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="col-form-label">Numero</label>
-                        <div>
-                            <input class="form-control" type="text" placeholder="42">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <button class="btn btn-primary " ng-click="">Registrar Veterinario</button>
-                    </div>
-                </div>
             </section>
 
         </div>

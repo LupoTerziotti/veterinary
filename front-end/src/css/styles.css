@@ -16,12 +16,17 @@ img {
   min-height: 50px;
   margin-bottom: 0px;
 }
+
 .row {
-       margin-right: -15px; 
-    margin-left: -15px; 
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
-.btn-blue-colour{
- background-color:#2C3E50
+.btn-blue-colour {
+  background-color: #2C3E50
 }
 
+.margin {
+  margin: 70px;
+  border: 1px;
+}
