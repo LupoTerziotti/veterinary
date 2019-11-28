@@ -1,7 +1,8 @@
 ## Veterinapp
 
 Se realizo un tipico formulario simple de alta, baja y modificacion de veterinarios con sus respectivos atributos y especialidad para un trabajo de la materia Programacion de aplicaciones visuales II.
-Tecnologias utilizadas:
+ 
+##### Tecnologias utilizadas:
 
 - Angularjs
 - Netcore
