@@ -1,6 +1,6 @@
 ## Veterinapp
 
-Se realizo un tipico formulario simple de alta, baja y modificacion de veterinarios con sus respectivos atributos y especialidad para un trabajo de la materia electiva llamada Programacion de aplicaciones visuales II en la Carrera de Ingeniera en Sistemas de Informacion de la [UTN].
+Se realizo un tipico formulario simple de alta, baja y modificacion de veterinarios con sus respectivos atributos y especialidad para un trabajo de la materia electiva llamada [Programacion de aplicaciones visuales II] en la Carrera de Ingeniera en Sistemas de Informacion de la [UTN].
  
 ##### Tecnologias utilizadas:
 
@@ -35,4 +35,5 @@ CREATE TABLE Veterinarian(
 
 
 [UTN]: <https://www.frc.utn.edu.ar/>
+[Programacion de aplicaciones visuales II]: <http://www.institucional.frc.utn.edu.ar/sistemas/noticias/ACA/Modalidades/2018/6AC_pavii_2018.pdf>
 
