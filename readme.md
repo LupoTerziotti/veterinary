@@ -34,5 +34,5 @@ CREATE TABLE Veterinarian(
 
 
 
-[UTN FRC]: <https://www.frc.utn.edu.ar/>
+[UTN]: <https://www.frc.utn.edu.ar/>
 
