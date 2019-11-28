@@ -30,3 +30,10 @@ img {
   margin: 70px;
   border: 1px;
 }
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+

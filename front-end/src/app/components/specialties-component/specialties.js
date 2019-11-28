@@ -19,7 +19,7 @@ var app = angular.module('myApp', []);
 
             $scope.showTable = () => {
                 if (!$scope.Tableflag) {
-                    $scope.Searcherflag = false;
+                    $scope.Searcherflag = false; 
                     $scope.Registerflag = false;
                     $scope.Tableflag = true;
                 }
