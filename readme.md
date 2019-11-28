@@ -4,9 +4,9 @@ Se realizo un tipico formulario simple de alta, baja y modificacion de veterinar
 Tecnologias utilizadas:
 
 - Angularjs
--Netcore
--HTML5 
--CSS 
+- Netcore
+- HTML5 
+- CSS 
 
 #### Base de Datos SQL SERVER:
 
