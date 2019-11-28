@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/front-end/src/favicon.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="./veterinarians.js"></script>
+    <script>src = "/front-end/css/styles.css"</script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Veterinapp</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/front-end/src/app/components/home-component/home.html">Inicio</a></li>
+                <li class="active"><a href="/front-end/src/app/components/veterinarians-component/veterinarians.html">Veterinarios</a></li>
+                <li><a href="/front-end/src/app/components/specialties-component/specialties.html">Especialidades</a></li>
+                <li><a href="/front-end/src/app/components/about-component/about.html">Acerca de</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <div class="jumbotron">
+                <h1>Veterinarios </h1>
+            </div>
+        </header>
+
+        <div ng-app="myApp" ng-controller="vetCtrl">
+            <button class="btn btn-primary " ng-click="showTable()">Mostrar
+                Veterinarios </button>
+            <button class="btn btn-primary " ng-click="showSearcher()">Buscar
+                Veterinario</button>
+            <button class="btn btn-primary " ng-click="showVeterinarianRegister()">Cargar
+                Veterinario</button>
+ 
+            <br>
+            <br>
+            <section ng-show="Tableflag">
+                <h2>Listado de Veterinarios </h2>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr style="background-color:#2C3E50; color: white;">
+                            <td>ID</td>
+                            <td>DNI</td>
+                            <td>Nombre</td>
+                            <td>Apellido</td>
+                            <td>Fecha de Nacimiento</td>
+                            <td>Calle</td>
+                            <td>Numero</td>
+                            <td>Salario</td>
+                            <td>Estado</td>
+                            <td>Especialidad</td>
+                            <td>Control</td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="Table_id" ng-repeat="vet in veterinarians">
+                            <td>{{vet.id}}</td>
+                            <td>{{vet.dni}}</td>
+                            <td>{{vet.name}}</td>
+                            <td>{{vet.lastName}}</td>
+                            <td>{{vet.bornDate | date:'dd/MM/yyyy'}}</td>
+                            <td>{{vet.street}}</td>
+                            <td>{{vet.streetNumber}}</td>
+                            <td>${{vet.salary}}</td>
+                            <td>{{vet.state ? 'Activo' : 'Inactivo'}}</td>
+                            <td>{{vet.especialidad.name}}</td>
+                            <td button class="btn btn-success btn-sm-6" ng-click="editVet(vet)">Editar</td>
+                            <td button class="btn btn-danger btn-sm-6" ng-click="deleteVet(vet)">Eliminar </button>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </section>
+            
+            
+            <section ng-show="Registerflag">
+                <div class="form-group row">
+
+                    <div class="col-sm-2">
+                        <label class="col-form-label">DNI</label>
+                        <div>
+                            <input class="form-control" type="number" placeholder="38614960" ng-model="dni">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Nombre</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Juan" ng-model="name">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Apellido</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Perez" ng-model="lastName">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-form-label">Fecha De Nacimiento</label>
+                        <div>
+                            <input class="form-control" type="date" placeholder="28/12/1994" ng-model="bornDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label class="col-form-label">Calle</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Wallaby" ng-model="street">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="col-form-label">Numero</label>
+                        <div>
+                            <input class="form-control" type="number" placeholder="42" ng-model="streetNumber">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Salario</label>
+                        <div>
+                            <input class="form-control" type="number" placeholder="10000" ng-model="salary">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Especialidad</label>
+                        <div>
+                            <select ng-model="specialtyId" ng-options="y.id as y.name for (x, y) in specialties">
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary " ng-click="createVeterinarian()">Registrar Veterinario</button>
+                    </div>
+                </div>
+            </section>
+
+            <section ng-show="Searcherflag">
+                <div class="form-group row ">
+                    <div class="input-group-prepend col-sm-12">
+                        <span class="input-group-text" id="basic-addon1">Buscar por Nombre</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="Nombre" ng-model="veterinarianName">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary " ng-click="getVeterinariansByName(veterinarianName)">Buscar</button>
+                    </div>
+
+                    <div class="input-group-prepend col-sm-12">
+                        <span class="input-group-text" id="basic-addon1">Buscar por Id</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" placeholder="Id" ng-model="veterinarianId">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary " ng-click="getVeterinariansById(veterinarianId)">Buscar</button>
+                    </div>
+
+                    <div class="input-group-prepend col-sm-12">
+                            <span class="input-group-text" id="basic-addon1">Buscar por Especialidad</span>
+                            <div>
+                                <select ng-model="veterinarianSpecialty" ng-options="y.id as y.name for (x, y) in specialties">
+                                </select>
+                                <button class="btn btn-primary " ng-click="getVeterinariansBySpecialty(veterinarianSpecialty)">Buscar</button>
+
+                            </div>
+
+                    
+                    <div class="nput-group-prepend col-sm-12">
+                            <br>
+                            <div class="col-sm-2">
+                                    <button class="btn btn-danger " ng-click="getVeterinariansByState(false)">Buscar por Inactivos</button>
+                                </div>
+                            <div class="col-sm-2">
+                                        <button class="btn btn-info " ng-click="getVeterinariansByState(true)">Buscar por Activos</button>
+                                    </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section ng-show="Modifierflag">
+                <div class="form-group row">
+
+                    <div class="col-sm-2">
+                        <label class="col-form-label">ID</label>
+                        <div>
+                            <input disabled="disabled" class="form-control" type="number" placeholder="{{param.id}}" ng-model="inputText">
+                        </div> 
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">DNI</label>
+                        <div>
+                            <input class="form-control" type="number" placeholder="38614960" ng-model="dni">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Nombre</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Juan" ng-model="name">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Apellido</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Perez" ng-model="lastName">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-form-label">Fecha De Nacimiento</label>
+                        <div>
+                            <input class="form-control" type="date" placeholder="28/12/1994" ng-model="bornDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label class="col-form-label">Calle</label>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Wallaby" ng-model="street">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="col-form-label">Numero</label>
+                        <div>
+                            <input class="form-control" type="number" placeholder="42" ng-model="streetNumber">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Salario</label>
+                        <div>
+                            <input class="form-control" type="number" placeholder="10000" ng-model="salary">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                            <label class="col-form-label">Especialidad</label>
+                            <div>
+                                <select ng-model="specialtyId" ng-options="y.id as y.name for (x, y) in specialties">
+                                </select>
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary " ng-click="putVet(vet)">Modificar Veterinario</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <footer>
+            <div class="footer">
+                Copyright &copy; PAV2 - UTN 2019
+                
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
