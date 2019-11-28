@@ -8,7 +8,7 @@ Tecnologias utilizadas:
 - HTML5 
 - CSS 
 
-#### Base de Datos SQL SERVER:
+#### Base de Datos en SQL SERVER:
 
 ```
 CREATE TABLE Veterinarian(
